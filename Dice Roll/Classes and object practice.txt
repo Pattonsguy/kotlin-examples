@@ -1,0 +1,41 @@
+//Kotlin uses the keyword "fun" to define functions
+fun main() {
+    /*
+    //val is used to define values
+    //define a range of numbers, Kotlin automatically interprets this as IntRange
+    val diceRange = 1..6
+    //val diceRange: IntRange = 1..6
+    //random will generate a random number within the range specified above
+    val randomNumber = diceRange.random()
+    //Use a string format notation or "string template" to print the number
+    println("Random number: ${randomNumber}")
+    */
+    //initialize an instance of Dice, get the number of sides it has, and then perform a roll
+    val myFirstDice = Dice(6)
+    //println(myFirstDice.sides)
+    //val diceRoll = myFirstDice.roll()
+    //println(diceRoll)
+    //println("Your ${myFirstDice.sides} sided die rolled ${diceRoll}!")
+    
+    //modify the sides value within the Dice object
+    //myFirstDice.sides = 20
+    //println("Your ${myFirstDice.sides} sided die rolled ${diceRoll}!")
+    
+    //Most of the previous code has become irrelevent as now the Dice class accepts a parameter and sides is no longer used.
+    println("Your ${myFirstDice.numSides} sided die rolled ${myFirstDice.roll()}!")
+}
+
+//Kotlin uses the keyword "class" to define classes
+//It is generally recommended to use Pascal Casing for class naming
+//adding input parameters requires a value data type assignment with a colon
+class Dice(val numSides: Int){
+    //Initializing general class characteristics
+    //var sides = 6
+    //defining a class function
+    //a colon and a data type are needed if we want to return a value.
+    fun roll(): Int{
+        //the tutorial wanted (1..6) hard coded, but having it match the sides instead makes more sense for scaling.
+        //returns the roll value without an extra val initialization and assignment
+        return (1..numSides).random()
+    }
+}
